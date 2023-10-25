@@ -20,9 +20,19 @@ namespace Chat
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Auth auth = new Auth();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            auth.SetCredientals(Login.Text, Pass.Password);
+            if (!auth.CredientalsCheck())
+            {
+                MessageBox.Show("Błąd podczas logowania!", "Auth");
+            }
         }
     }
 }
