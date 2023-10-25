@@ -5,15 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat"
         mc:Ignorable="d"
-        Title="AppWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="AppWindow" Height="450" Width="800" MinHeight="450" MinWidth="800" FontFamily="Cascadia Mono">
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <TextBox Name="UsersBox" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" IsReadOnly="True" VerticalAlignment="Stretch"></TextBox>
+        <TextBox Name="MessagesBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True" VerticalAlignment="Stretch" Grid.ColumnSpan="2"></TextBox>
+        <TextBox Name="CurrentMessageBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"></TextBox>
+        <Button Name="SendMessage" Grid.Row="2" Grid.Column="2" Content="Wyślij" Margin="15" FontSize="16">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="Border.CornerRadius" Value="5,5,5,5"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

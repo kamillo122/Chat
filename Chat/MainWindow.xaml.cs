@@ -21,6 +21,7 @@ namespace Chat
     public partial class MainWindow : Window
     {
         private readonly Auth auth = new Auth();
+        private readonly AppWindow appWindow = new AppWindow();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,12 @@ namespace Chat
             if (!auth.CredientalsCheck())
             {
                 MessageBox.Show("Błąd podczas logowania!", "Auth");
+            } else
+            {
+                this.Hide();
+                appWindow.Show();
             }
+
         }
     }
 }
